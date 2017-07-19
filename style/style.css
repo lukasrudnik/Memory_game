@@ -1,0 +1,404 @@
+/*@import url(http://fonts.googleapis.com/css?family=Alegreya:900,700&subset=latin,latin-ext);*/
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    html,body {
+        padding: 10px;
+        overflow: hidden;
+        height:100%;
+        font:bold 1em/1.5em 'Ligth', sans-serif;
+    }
+
+    .loading {
+        position: fixed;
+        top:10px;
+        left:10px;
+        background:#fff url(../images/loading.gif) center center no-repeat;
+        display: none;
+        width:40px;
+        height: 40px;
+        border-radius:10px;
+        z-index:10;
+        opacity:0.8;
+    }
+
+    h3 {
+        font:bold 2.5em/1em 'Ligth', sans-serif;
+        margin:0 10px;
+        text-transform: uppercase;
+        text-align:center;
+    }
+
+/* przyciski */
+    .button {
+        cursor: pointer;
+        max-width:500px;
+        width:100%;
+        border-radius:6px;
+        font:bold 30px/80px 'Ligth', sans-serif;
+        text-decoration: none;
+        text-align: center;
+        color:#fff;
+        text-shadow:0 0 1px rgba(255,255,255,0.9);
+        background: #ff3019;
+        background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404));
+        background: -webkit-linear-gradient(top,  #ff3019 0%,#cf0404 100%);
+        background: -o-linear-gradient(top,  #ff3019 0%,#cf0404 100%);
+        background: -ms-linear-gradient(top,  #ff3019 0%,#cf0404 100%);
+        background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%);
+        
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 );
+        
+        display: block;
+        margin:15px auto;
+        box-shadow:inset 0 30px 0 rgba(255,255,255,0.1);
+        border:2px solid #fff;
+    }
+
+    .button:hover, .button:focus {
+        text-shadow:0 0 2px rgba(255,255,255,0.9);
+        background: #f1e767;
+        background: -moz-linear-gradient(top,  #f1e767 0%, #feb645 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1e767), color-stop(100%,#feb645));
+        background: -webkit-linear-gradient(top,  #f1e767 0%,#feb645 100%);
+        background: -o-linear-gradient(top,  #f1e767 0%,#feb645 100%);
+        background: -ms-linear-gradient(top,  #f1e767 0%,#feb645 100%);
+        background: linear-gradient(to bottom,  #f1e767 0%,#feb645 100%);
+        
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645',GradientType=0 );
+        
+        box-shadow:inset 0 2px 4px rgba(0,0,0,0.2);
+    }  
+
+/* plansze, widoki */
+    [class^=slide-] {
+        z-index:1;
+        position: absolute;
+        left:0;
+        top:-300%;
+        width:100%;
+        min-height: 100%;
+        background:#fff;    
+        padding:2em;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    [class^=slide-].show {
+        z-index:2;
+        top:0;
+    }
+
+    .slide-start {
+        top:0;
+        background: #fff;
+    }
+
+    .slide-player-name {
+        background: #fff;
+    }
+
+    .slide-game {
+       
+        background: #fff;
+    }    
+    .slide-highscore {
+        background: #fff;
+    }   
+
+/* start menu */
+    .start-menu {
+        max-width:600px;
+        margin:10px auto;
+        background:#eee;
+        padding:2em;
+        border-radius:10px;
+    }
+
+/* player name box */
+    .player-name-box {
+        max-width:500px;
+        width:80%;
+        margin:1em auto;
+    }
+
+    .player-name-box label {
+        font-size:2em;
+        text-align:center;
+        margin:0 auto;
+        color:#333;
+        display: block;        
+        line-height: 1.5em;
+    }
+
+    .player-name-box .player-name {
+        width:100%;
+        height:90px;    
+        padding:0 15px;
+        font:bold 30px 'Ligth', sans-serif;        
+        text-align: center;
+        background: #eee;
+        color:#333;
+        border:0;
+        display: block;
+        border-radius:5px;
+        border:1px solid #fff;
+        box-shadow:inset 0 2px 3px rgba(0,0,0,0.2);
+    }
+
+    /* in chrome line height is bad. this is only for ie8 xp */
+    .lt-ie9 .player-name-box .player-name {line-height:90px;}
+    .player-name-box .player-name:focus {    
+        box-shadow:inset 0 0 10px #2996f2;
+        border:1px solid #2996f2;
+        background: #fff;
+        outline:none;
+    }
+
+    .player-name-box .player-name-error {
+        font:bold 25px/32px 'Ligth', sans-serif;
+        background: url(../images/error.png) no-repeat;
+        padding-left:40px;
+        line-height: 32px;
+        color:#D80D0D;
+        margin:5px auto;
+        display: none;
+    }
+
+    .player-name-box.error .player-name-error {
+        display: block;
+    }  
+
+/* high score */
+    .highscore-board {
+        background: #000000;
+        width:90%;
+        max-width:500px;
+        border:10px;
+        margin:10px auto;
+        padding:20px;
+        font-size:1.5em;
+        border-radius:6px;
+        box-shadow:0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .highscore-board .line {
+        border-bottom:1px solid rgba(0,0,0,0.3);
+    }
+
+    .highscore-board .line:nth-of-type(2n) {
+        background:rgba(0,0,0,0.1);
+    }
+
+    .highscore-board .line .player {
+        vertical-align: top;
+        display: inline-block;
+        width:50%;
+        padding:15px 10px;
+        white-space: nowrap;
+        text-overflow:ellipsis;
+        overflow: hidden;
+
+    }
+
+    .highscore-board .line .moves {
+        vertical-align: top;
+        display: inline-block;
+        width:50%;
+        padding:15px 10px;
+        text-align: right
+    }
+
+/* game moves box */
+    .game-moves-box {
+        width:100%;
+        margin:10px auto;    
+    }
+
+    .game-moves-box strong {
+        font:bold 1.5em/1em 'Ligth', sans-serif;
+        color:#333;
+        text-align: center;
+        display: block;
+    }
+
+    .game-moves-box .game-moves {
+        border-radius:10px;
+        height:30px;
+        max-width:300px;
+        font:bold 2em/30px 'Ligth', sans-serif;
+        text-align: center;
+        background: #fff;
+        margin:10px auto;    
+    }
+
+/* game board */
+    .game-board {
+        position: relative;    
+        overflow: hidden;
+        max-width: 600px;
+        height:400px;
+        width:80%;
+        margin:0 auto;   
+        border-radius:10px;
+    }
+
+    .game-board .cell {        
+        width:19%; 
+        margin:0.5%;
+        height:23%;
+        vertical-align: top;
+        display: inline-block;
+        position: relative;
+    }
+
+/* kafelki */    
+    .game-board .tile {
+        width:100%;
+        height:100%;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .game-board .tile span {
+        width:100%;
+        height:100%;
+        display: block;
+        position:absolute;
+        top:0; 
+        left:0;
+    }
+
+    .game-board .tile .avers {        
+        border:1px solid #C1C5D7;
+        box-shadow:0 0 3px rgba(0,0,0,0.2), inset 0 40px 10px rgba(0,0,0,0.1), inset 0 0 2px 1px rgba(0,0,0,0.4);    
+        z-index:3;    
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;    
+        -webkit-transform:scaleX(0);
+        -moz-transform:scaleX(0);
+        transform:scaleX(0);
+    }
+
+    .game-board .tile .revers {
+        border:1px solid #C1C5D7;
+        background: #ffffff;
+        background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
+        background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+        background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+        background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+        background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+        z-index:2;
+        display: block;
+        box-shadow:0 0 3px rgba(0,0,0,0.2);
+        -webkit-transition: 0.2s 0.2s;
+        -moz-transition: 0.2s 0.2s;
+        -ms-transition: 0.2s 0.2s;
+        -o-transition: 0.2s 0.2s;
+        transition: 0.2s 0.2s; 
+        -webkit-transform:scaleX(1);
+        -moz-transform:scaleX(1);
+        transform:scaleX(1);
+    }
+
+    .game-board .tile .revers::before {
+        content:'?';
+        color:#C1C5D7;
+        width:100%;
+        text-shadow:0 0 2px #C1C5D7;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+        text-align: center;
+        font-size:3em;
+        line-height:2em;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    .game-board .tile:hover .revers::before {
+        opacity:0.3;
+    }
+
+    /* show */
+    .game-board .tile.show .avers {            
+        -webkit-transition: 0.2s 0.2s;
+        -moz-transition: 0.2s 0.2s;
+        -ms-transition: 0.2s 0.2s;
+        -o-transition: 0.2s 0.2s;
+        transition: 0.2s 0.2s;    
+        -webkit-transform:scaleX(1);
+        -moz-transform:scaleX(1);    
+        transform:scaleX(1);
+    } 
+
+    .game-board .tile.show .revers {
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+        -webkit-transform:scaleX(0);
+        -moz-transform:scaleX(0);    
+        transform:scaleX(0);
+    }  
+
+    /* ie &lt; 9 fix */
+    .lt-ie9 .game-board .tile .avers {visibility:hidden; opacity:0;}
+    .lt-ie9 .game-board .tile .revers {visibility:visible; opacity:1;}
+    .lt-ie9 .game-board .tile.show .avers {visibility:visible; opacity:1;}
+    .lt-ie9 .game-board .tile.show .revers {visibility:hidden; opacity:0;}
+
+/* indywidualne stylowanie każde z kafelków */
+    /*.game-board .card-type-0 .avers {background:#f34040;}
+    .game-board .card-type-1 .avers {background:#be6abb;}
+    .game-board .card-type-2 .avers {background:#7a6abe;}
+    .game-board .card-type-3 .avers {background:#4f4d5a;}
+    .game-board .card-type-4 .avers {background:#477eb2;}
+    .game-board .card-type-5 .avers {background:#4fdca5;}
+    .game-board .card-type-6 .avers {background:#c3dc4f;}
+    .game-board .card-type-7 .avers {background:#edb328;}
+    .game-board .card-type-8 .avers {background:#763e10;}
+    .game-board .card-type-9 .avers {background:#c7fdff;} */
+
+    .game-board .card-type-0 .avers {background:url(../images/title_1.png) center center no-repeat;}
+    .game-board .card-type-1 .avers {background:url(../images/title_2.png) center center no-repeat;}
+    .game-board .card-type-2 .avers {background:url(../images/title_3.png) center center no-repeat;}
+    .game-board .card-type-3 .avers {background:url(../images/title_4.png) center center no-repeat;}
+    .game-board .card-type-4 .avers {background:url(../images/title_5.png) center center no-repeat;}
+    .game-board .card-type-5 .avers {background:url(../images/title_6.png) center center no-repeat;}
+    .game-board .card-type-6 .avers {background:url(../images/title_7.png) center center no-repeat;}
+    .game-board .card-type-7 .avers {background:url(../images/title_8.png) center center no-repeat;}
+    .game-board .card-type-8 .avers {background:url(../images/title_9.png) center center no-repeat;}
+    .game-board .card-type-9 .avers {background:url(../images/title_10.png) center center no-repeat;}    
+
+/* media */
+    @media only screen and ( max-width: 320px) {    
+        .game-board .cell {
+            width:49%;
+            height:9%;
+        }
+        
+        .game-board .tile .revers::before {
+            text-align: center;
+            font-size:2em;
+            line-height:1em;       
+        }
+    }
