@@ -3,7 +3,7 @@
 $fileSrc = 'highscore.dat';
 $resultsMaxCount = 10;
 
-$action = (string)$_POST['action'];
+$action = (string)$_POST['action']; // przesyłanie akcji ajaxem
 
 if($action == 'read'){
     $scoreBoard = readHighScore();
